@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- 部门映射 -->
+<hibernate-mapping package="cn.itcast.pojo">
+
+	<class name="Employee" table="t_employee">
+		<id name="id" type="java.lang.Long">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" length="30"></property>
+		<property name="password" length="20"></property>
+		<property name="trueName" length="30"></property>
+		<property name="loginTime" type="timestamp"></property>
+		<property name="lastLoginTime" type="timestamp"></property>
+		<property name="ip" length="20"></property>
+		<property name="lastLoginIp" length="20"></property>
+		<property name="tel" length="20"></property>
+		<property name="email" length="20"></property>
+		
+		<!-- 关联映射 (t_employee表的外键字段，dept_id) -->
+		<many-to-one name="department" class="Department" column="dept_id"></many-to-one>
+		
+	</class>
+
+</hibernate-mapping>
+
+
+
